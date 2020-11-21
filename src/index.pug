@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title #{htmlWebpackPlugin.options.title}
+    each cssFile in htmlWebpackPlugin.files.css
+      style !{compilation.assets[cssFile.substr(htmlWebpackPlugin.files.publicPath.length)].source()}
+    script window['APIPATH']="!{htmlWebpackPlugin.options.templateParameters.APIPATH}";
+    each jsFile in htmlWebpackPlugin.files.js
+      script !{compilation.assets[jsFile.substr(htmlWebpackPlugin.files.publicPath.length)].source()}
+  body
+    a#topBtn.icon.is-medium
+    nav(class=["navbar","is-primary"] role="navigation" aria-label="main navigation")
+      .navbar-brand
+        .navbar-item#navBtns
+          span#arrowBackOutlineBtn.nav-btn.icon.is-medium.is-disabled
+          span#arrowForwardOutlineBtn.nav-btn.icon.is-medium.is-disabled
+        a(role="button" class="navbar-burger" aria-label="menu" aria-expanded=false)
+          span(aria-hidden=true)
+          span(aria-hidden=true)
+          span(aria-hidden=true)
+      .navbar-menu.is-active
+        .navbar-start
+        .navbar-end
+          .navbar-item
+            .field.has-addons
+              .control
+                input#searchInput(type="text" class=['input','is-normal'] placeholder='search')
+              .control
+                button#searchBtn(class=['button','is-normal','is-disabled'])
+    section.section
+      .container
+        table.table.is-hoverable.is-fullwidth#listTable
+          thead
+            tr
+              th name
+              th mtime
+              th size
+          tbody
+    footer.footer
+      .content
+        p.
+          #[strong autoindex] create by 
+          #[a#author(target="_blank" href=htmlWebpackPlugin.options.templateParameters.url) #{htmlWebpackPlugin.options.templateParameters.author}]
