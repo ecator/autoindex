@@ -131,7 +131,7 @@ function getFileTypeIcon(item) {
     if (ext.match(/mp3|aac|flac|ogg|wma/i)) {
         return 'music-file-icon';
     }
-    if (ext.match(/psd|xcf|ai|cdr|tif|tiff|bmp|jpg|jpeg|gif|png|eps|raw|cr2|nef|orf|sr2/i)) {
+    if (ext.match(/psd|xcf|ai|cdr|tif|tiff|bmp|jpg|jpeg|gif|png|ico|svg|eps|raw|cr2|nef|orf|sr2/i)) {
         return 'img-file-icon';
     }
     return "comm-file-icon";
