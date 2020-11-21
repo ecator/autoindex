@@ -102,7 +102,7 @@ function appendToListTable(data) {
             }
             size = (size / Math.pow(1024, i)).toFixed(2) + ' ' + sizeUnits[i];
         }
-        let tr = $(`<tr><td><a class="filetype-icon ${getFileTypeIcon(item)}" href="${encodeURI(item['fullname'])}">${item['name']}</a></td><td><tt>${mtime}</tt></td><td>${size}</td></tr>`);
+        let tr = $(`<tr><td><a class="filetype-icon ${getFileTypeIcon(item)}" href="${item['fullname']}">${item['name']}</a></td><td><tt>${mtime}</tt></td><td>${size}</td></tr>`);
         listTableBody.append(tr);
     });
 }
