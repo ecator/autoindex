@@ -46,6 +46,7 @@ server {
 
   location ^~ /autoindexjson {
     alias   /path/to/data;
+    charset utf8;
     autoindex on;
     autoindex_exact_size off;
     autoindex_localtime on;
