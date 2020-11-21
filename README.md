@@ -1,6 +1,6 @@
 # autoindex
 
-nginx默认的autoindex页面太丑了  :smiley_cat: 就重新写了一个，而且支持递归搜索功能。
+nginx默认的autoindex页面太丑了  :smiley_cat: 就重新写了一个，支持IE10+，增加了递归搜索功能。
 
 # 开发
 
