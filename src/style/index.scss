@@ -1,0 +1,106 @@
+@import './icon';
+
+html {
+  overflow-y: auto;
+}
+
+#topBtn {
+  background-image: url(get-svg-url('chevron-up-outline'));
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  display: none;
+}
+
+.nav-btn {
+  cursor: pointer;
+}
+
+#arrowBackOutlineBtn {
+  background-image: url(get-svg-url('arrow-back-outline'));
+}
+
+#arrowForwardOutlineBtn {
+  background-image: url(get-svg-url('arrow-forward-outline'));
+}
+
+#arrowBackOutlineBtn.is-disabled,
+#arrowForwardOutlineBtn.is-disabled,
+#searchBtn:disabled {
+  background-image: url(get-svg-url('ban-outline'));
+  cursor: not-allowed;
+}
+
+#searchBtn {
+  background-image: url(get-svg-url('search-circle-outline'));
+  background-color: transparent;
+  background-size: 100% 100%;
+  border: none;
+}
+
+
+#listTable {
+  .filetype-icon::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-size: 100% 100%;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .folder-parent-icon::before {
+    background-image: url(get-svg-url('arrow-undo-outline'));
+  }
+
+  .folder-icon::before {
+    background-image: url(get-svg-url('folder-outline'));
+  }
+
+  .comm-file-icon::before {
+    background-image: url(get-svg-url('document-outline'));
+  }
+
+  .video-file-icon::before {
+    background-image: url(get-svg-url('videocam-outline'));
+  }
+
+  .music-file-icon::before {
+    background-image: url(get-svg-url('musical-notes-outline'));
+  }
+
+  .img-file-icon::before {
+    background-image: url(get-svg-url('image-outline'));
+  }
+
+  a .tag {
+    padding: 0;
+    font-size: 1rem;
+    height: 1.2rem;
+  }
+}
+
+
+
+.footer {
+  padding: 2rem 1rem 2rem 1rem;
+
+  p {
+    text-align: center;
+
+    #author::before {
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: -1px;
+      width: 1.2rem;
+      height: 1.2rem;
+      background-size: 100% 100%;
+      margin-right: 2px;
+      vertical-align: middle;
+      background-image: url(get-svg-url('logo-github'));
+    }
+  }
+}

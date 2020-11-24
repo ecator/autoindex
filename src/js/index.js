@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import 'bulma';
-import '../style/index.css';
+import '../style/index.scss';
 import '../favicon.ico';
 
 import { listPathname, searchFiles, clearListTable } from "./table";
@@ -48,12 +48,12 @@ $(function () {
     let searchInput = $("#searchInput");
     let searchBtn = $("#searchBtn");
     if (searchInput.val()) {
-        searchBtn.removeClass("is-disabled");
+        searchBtn.removeAttr("disabled");
     }
     searchInput.on("input", function () {
-        searchBtn.removeClass("is-disabled");
+        searchBtn.removeAttr("disabled");
         if (!this.value) {
-            searchBtn.addClass("is-disabled");
+            searchBtn.attr("disabled","disabled");
         }
     });
     searchBtn.on('click', function () {

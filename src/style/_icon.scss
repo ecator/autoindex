@@ -1,0 +1,5 @@
+// 获取svg图标url
+@function get-svg-url($name) {
+    $svg-url: "../svg";
+    @return $svg-url+"/"+$name+".svg";
+}
