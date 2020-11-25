@@ -87,7 +87,7 @@ function appendToListTable(data) {
     let listTableBody = $("#listTable tbody");
     data.forEach(item => {
         let mtime = new Date(item['mtime']);
-        mtime = mtime.getFullYear() + '/' + ('0' + mtime.getMonth()).substr(-2) + '/' + ('0' + mtime.getDate()).substr(-2) + ' ' + ('0' + mtime.getHours()).substr(-2) + ':' + ('0' + mtime.getMinutes()).substr(-2) + ':' + ('0' + mtime.getSeconds()).substr(-2);
+        mtime = mtime.getFullYear() + '/' + ('0' + (mtime.getMonth() + 1)).substr(-2) + '/' + ('0' + mtime.getDate()).substr(-2) + ' ' + ('0' + mtime.getHours()).substr(-2) + ':' + ('0' + mtime.getMinutes()).substr(-2) + ':' + ('0' + mtime.getSeconds()).substr(-2);
         let size = item['size'];
         if (size == undefined) {
             size = '-';
