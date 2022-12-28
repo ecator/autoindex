@@ -1,0 +1,17 @@
+FROM docker/dev-environments-default:stable-1
+
+ENV VERSION=v15.14.0
+ENV DISTRO=linux-x64
+ENV APP_URL=https://nodejs.org/download/release/${VERSION}/node-${VERSION}-${DISTRO}.tar.xz
+ENV TMP_FILE=/tmp/nodejs.tar.xz
+ENV INSTALL_DIR=/usr/local/lib/nodejs
+ENV LANG=C.UTF-8
+ENV PATH=$PATH:$INSTALL_DIR/node-$VERSION-$DISTRO/bin
+
+RUN apt update && apt install -y jq wget xz-utils && apt clean
+RUN curl -sSLf ${APP_URL} -o ${TMP_FILE} && \ 
+    mkdir -p ${INSTALL_DIR} && \
+    tar -xJvf ${TMP_FILE} -C ${INSTALL_DIR} && \
+    rm -rf ${TMP_FILE}
+
+RUN echo "alias ll='ls -ahl --color'" >> /etc/bash.bashrc
