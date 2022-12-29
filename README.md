@@ -4,7 +4,7 @@ nginx默认的autoindex页面太丑了  :smiley_cat: 就重新写了一个，支
 
 # 开发
 
-确保本地有nodejs环境，然后安装依赖：
+确保本地有nodejs15环境或者直接使用[Docker Dev Environment](https://open.docker.com/dashboard/dev-envs?url=https://github.com/ecator/autoindex)，然后安装依赖：
 
 ```sh
 npm install
