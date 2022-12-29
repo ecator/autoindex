@@ -67,7 +67,7 @@ function insertNavpath(num) {
     for (let i = n - num; i < n; i++) {
         if (i >= 0) {
             url = '/' + pathnames.slice(0, i + 1).join('/');
-            let name = decodeURI(pathnames[i]);
+            let name = decodeURIComponent(pathnames[i]);
             if (i == n - num && i > 0) {
                 name = "..." + name;
             }

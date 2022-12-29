@@ -1,9 +1,8 @@
 {
   "name": "autoindex",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "autoindex for nginx",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
@@ -29,7 +28,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dist": "webpack --mode production && cd dist && tar -Jcvf autoindex-$(cat ../package.json | jq '.version' | grep -Eo '\\d+\\.\\d+\\.\\d+').tar.xz index.html favicon.ico"
+    "dist": "webpack --mode production && cd dist && tar -Jcvf autoindex-$(cat ../package.json | jq -r '.version').tar.xz index.html favicon.ico"
   },
   "author": "Martin",
   "license": "MIT"

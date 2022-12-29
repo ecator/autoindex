@@ -32,7 +32,7 @@ function searchFiles(pathname, recurse, glob) {
         for (let i = 0; i < data.length; i++) {
             if (data[i]['type'] == 'directory') {
                 if (recurse) {
-                    searchFiles(pathname + data[i]['name'], recurse, glob);
+                    searchFiles(pathname + encodeURIComponent(data[i]['name']), recurse, glob);
                 }
             } else {
                 data[i]['name'] = data[i]['name'].replace(pattern, '<span class="tag is-success">$1</span>');
@@ -57,7 +57,7 @@ function listPathname(pathname) {
     }
     $.getJSON(apipath + pathname, function (data, status) {
         //console.log(data, status);
-        data.map((item) => item['fullname'] = pathname + item['name']);
+        data.map((item) => item['fullname'] = decodeURIComponent(pathname) + item['name'] + (item['type'] == 'directory' ? '/' : ''));
         appendToListTable(data);
     }).fail(function () {
         console.log(`list ${pathname} fail`);
@@ -102,7 +102,7 @@ function appendToListTable(data) {
             }
             size = (size / Math.pow(1024, i)).toFixed(2) + ' ' + sizeUnits[i];
         }
-        let tr = $(`<tr><td><a class="filetype-icon ${getFileTypeIcon(item)}" href="${item['fullname']}">${item['name']}</a></td><td><tt>${mtime}</tt></td><td>${size}</td></tr>`);
+        let tr = $(`<tr><td><a class="filetype-icon ${getFileTypeIcon(item)}" href="${encodeURIComponent(item['fullname']).replaceAll('%2F', '/')}">${item['name']}</a></td><td><tt>${mtime}</tt></td><td>${size}</td></tr>`);
         listTableBody.append(tr);
     });
 }
